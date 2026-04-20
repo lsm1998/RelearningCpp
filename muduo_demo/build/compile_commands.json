@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/lsm/workspace/muduo_demo/build",
+  "command": "/usr/bin/c++  -I/home/lsm/workspace/muduo_demo/../third_party/muduo/include -std=gnu++23 -o CMakeFiles/echo_server.dir/server.cpp.o -c /home/lsm/workspace/muduo_demo/server.cpp",
+  "file": "/home/lsm/workspace/muduo_demo/server.cpp",
+  "output": "CMakeFiles/echo_server.dir/server.cpp.o"
+},
+{
+  "directory": "/home/lsm/workspace/muduo_demo/build",
+  "command": "/usr/bin/c++  -I/home/lsm/workspace/muduo_demo/../third_party/muduo/include -std=gnu++23 -o CMakeFiles/echo_client.dir/client.cpp.o -c /home/lsm/workspace/muduo_demo/client.cpp",
+  "file": "/home/lsm/workspace/muduo_demo/client.cpp",
+  "output": "CMakeFiles/echo_client.dir/client.cpp.o"
+}
+]

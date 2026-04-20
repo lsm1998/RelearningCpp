@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/echo_server.dir/link.d CMakeFiles/echo_server.dir/server.cpp.o -o echo_server   -L/home/lsm/workspace/muduo_demo/../third_party/muduo/lib  -Wl,-rpath,/home/lsm/workspace/muduo_demo/../third_party/muduo/lib -lmuduo_net -lmuduo_base -lpthread
