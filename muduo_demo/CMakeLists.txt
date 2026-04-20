@@ -21,6 +21,10 @@ target_link_libraries(echo_server
     pthread
 )
 
+target_link_libraries(echo_client
+    pthread
+)
+
 # 运行时优先到 muduo 安装目录找动态库
 set_target_properties(echo_server PROPERTIES
     BUILD_RPATH "${MUDUO_INSTALL_PREFIX}/lib"

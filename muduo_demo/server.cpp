@@ -5,6 +5,7 @@
 #include <muduo/net/TcpConnection.h>
 #include <muduo/net/TcpServer.h>
 #include <string>
+#include <thread>
 
 using namespace muduo;
 using namespace muduo::net;
@@ -14,11 +15,15 @@ class EchoServer
 public:
     EchoServer(EventLoop* loop, const InetAddress& listenAddr) : server_(loop, listenAddr, "EchoServer"), loop_(loop)
     {
+        // 设置连接事件回调
         server_.setConnectionCallback(std::bind(&EchoServer::onConnection, this, std::placeholders::_1));
 
+        // 设置消息处理回调
         server_.setMessageCallback(std::bind(&EchoServer::onMessage, this, std::placeholders::_1, std::placeholders::_2,
                                              std::placeholders::_3));
-        server_.setThreadNum(4);
+
+        // 设置线程数                                        
+        server_.setThreadNum(std::thread::hardware_concurrency());
     }
 
     void start() { server_.start(); }
@@ -63,6 +68,5 @@ int main()
 
     LOG_INFO << "EchoServer started, listen on port 2007";
     loop.loop();
-
     return 0;
 }
