@@ -1,4 +1,0 @@
-/home/lsm/workspace/muduo_demo/build/CMakeFiles/echo_server.dir
-/home/lsm/workspace/muduo_demo/build/CMakeFiles/echo_client.dir
-/home/lsm/workspace/muduo_demo/build/CMakeFiles/edit_cache.dir
-/home/lsm/workspace/muduo_demo/build/CMakeFiles/rebuild_cache.dir
