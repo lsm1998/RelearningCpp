@@ -12,3 +12,5 @@ add_subdirectory(muduo_demo)
 add_subdirectory(pg_demo)
 
 add_subdirectory(kafka_demo)
+
+add_subdirectory(redis_demo)
