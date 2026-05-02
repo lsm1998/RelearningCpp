@@ -5,6 +5,8 @@
 
 int main()
 {
-    std::cout << "hello" << std::endl;
+    payment::QueryOrderReq req;
+    req.set_order_no("123");
+    std::cout << req.order_no() << std::endl;
     return 0;
 }
