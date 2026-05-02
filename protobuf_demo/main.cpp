@@ -1,5 +1,7 @@
 #include <iostream>
-#include "protos/demo.pb.h"
+#include "common/message.pb.h"
+#include "common/enums.pb.h"
+#include "payment/payment.pb.h"
 
 int main()
 {

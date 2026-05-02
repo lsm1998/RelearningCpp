@@ -5,8 +5,15 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(protobuf_FORCE_FETCH_DEPENDENCIES ON CACHE BOOL "" FORCE)
+# 本地 Abseil，避免每次从 GitHub 下载
+set(BUILD_TESTING OFF)
+add_subdirectory(
+    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/abseil-cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/third_party/abseil-cpp
+    EXCLUDE_FROM_ALL
+)
 
+set(protobuf_INSTALL OFF CACHE BOOL "" FORCE)
 add_subdirectory(
     ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/protobuf
     ${CMAKE_CURRENT_BINARY_DIR}/third_party/protobuf
@@ -23,7 +30,7 @@ file(GLOB_RECURSE PROTO_FILES protos/*.proto)
 protobuf_generate(
     TARGET protobuf_demo
     PROTOS ${PROTO_FILES}
-    PROTOC_OUT_DIR ${CMAKE_CURRENT_BINARY_DIR}
+    PROTOC_OUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/generate
     PROTOC_EXE protoc
     IMPORT_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/protos
     LANGUAGE cpp
@@ -31,7 +38,7 @@ protobuf_generate(
 
 target_include_directories(protobuf_demo
     PRIVATE
-    ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/generate
 )
 
 target_link_libraries(protobuf_demo
