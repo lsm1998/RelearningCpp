@@ -10,3 +10,5 @@ add_subdirectory(protobuf_demo)
 add_subdirectory(muduo_demo)
 
 add_subdirectory(pg_demo)
+
+add_subdirectory(kafka_demo)
