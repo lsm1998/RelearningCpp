@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "common/message.proto";
+
+package payment;
+
+service PaymentService {
+  rpc CreateOrder(CreateOrderReq) returns (common.Empty);
+
+  rpc QueryOrder(QueryOrderReq) returns (QueryOrderResp);
+}
+
+message CreateOrderReq {
+  string order_no  = 1;
+  int64  user_id   = 2;
+  int64  money     = 3;
+  string currency  = 4;
+}
+
+message CreateOrderResp {}
+
+message  QueryOrderReq{
+  string order_no  = 1;
+  int64  user_id   = 2;
+  int64 last_id =3;
+}
+
+message QueryOrderResp{
+  repeated Order list = 1;
+  bool has_more = 2;
+}
+
+message Order {
+  int64 id =1;
+  string order_no  = 2;
+  int64  user_id   = 3;
+  int64  money     = 4;
+  string currency  = 5;
+}

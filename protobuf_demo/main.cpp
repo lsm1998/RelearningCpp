@@ -1,5 +1,5 @@
 #include <iostream>
-#include "generate/demo.pb.h"
+#include "protos/demo.pb.h"
 
 int main()
 {

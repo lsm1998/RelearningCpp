@@ -1,3 +1,7 @@
 .cache/
 
 build/
+
+.idea
+
+cc.sh
