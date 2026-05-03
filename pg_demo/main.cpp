@@ -5,7 +5,7 @@ int main()
 {
     try
     {
-        pqxx::connection conn("host=localhost port=5432 dbname=postgres user=postgres password=postgres");
+        pqxx::connection conn("host=127.0.0.1 port=5432 dbname=demo user=postgres password=123456");
 
         if (!conn.is_open())
         {

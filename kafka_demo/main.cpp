@@ -146,7 +146,7 @@ void demo_consumer()
     std::cout << "Consumer 已关闭" << std::endl;
 }
 
-int main(int argc, char *argv[])
+int main(const int argc, char *argv[])
 {
     signal(SIGINT, sigterm_handler);
     signal(SIGTERM, sigterm_handler);
