@@ -16,3 +16,5 @@ add_subdirectory(kafka_demo)
 add_subdirectory(redis_demo)
 
 add_subdirectory(etcd_demo)
+
+add_subdirectory(grpc_demo)
