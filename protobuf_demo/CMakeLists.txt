@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(protobuf_demo LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 # 本地 Abseil，避免每次从 GitHub 下载
 set(BUILD_TESTING OFF)
 add_subdirectory(
