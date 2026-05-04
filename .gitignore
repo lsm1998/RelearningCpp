@@ -1,3 +1,9 @@
 .cache/
 
 build/
+
+.idea
+
+cc.sh
+
+cmake-build-debug

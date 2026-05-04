@@ -1,0 +1,20 @@
+references:
+  envoy-build-image: &envoy-build-image
+    envoyproxy/envoy-build-ubuntu:f4a881a1205e8e6db1a57162faf3df7aed88eae8
+
+version: 2
+jobs:
+   test:
+     docker:
+       - image: *envoy-build-image
+     resource_class: xlarge
+     working_directory: /source
+     steps:
+       - checkout
+       - run: ci/do_ci.sh bazel.test
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - test
