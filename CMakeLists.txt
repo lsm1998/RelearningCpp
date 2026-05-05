@@ -11,7 +11,10 @@ add_subdirectory(log_demo)
 
 add_subdirectory(protobuf_demo)
 
-add_subdirectory(muduo_demo)
+if(LINUX)
+    add_subdirectory(muduo_demo)
+    add_subdirectory(io_uring)
+endif()
 
 add_subdirectory(pg_demo)
 

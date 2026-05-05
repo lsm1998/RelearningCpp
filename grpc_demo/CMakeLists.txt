@@ -43,11 +43,13 @@ set(gRPC_BUILD_GRPC_PYTHON_PLUGIN OFF CACHE BOOL "")
 set(gRPC_BUILD_GRPC_RUBY_PLUGIN OFF CACHE BOOL "")
 set(gRPC_BUILD_GRPC_OBJC_PLUGIN OFF CACHE BOOL "")
 
-add_subdirectory(
-    ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/grpc
-    ${CMAKE_CURRENT_BINARY_DIR}/grpc
-    EXCLUDE_FROM_ALL
-)
+if(NOT TARGET grpc++)
+    add_subdirectory(
+        ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/grpc
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc
+        EXCLUDE_FROM_ALL
+    )
+endif()
 
 # 生成proto
 set(PROTO_DIR "${CMAKE_CURRENT_SOURCE_DIR}/protos")

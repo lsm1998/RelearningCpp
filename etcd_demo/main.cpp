@@ -10,7 +10,6 @@ int main()
 
     std::cout << "=== etcd C++ Client Demo ===" << std::endl;
 
-    // ── PUT ──
     etcd.set("/demo/hello", "world");
     std::cout << "PUT  /demo/hello = world" << std::endl;
 
@@ -20,7 +19,6 @@ int main()
     etcd.set("/demo/name", "etcd-cpp-apiv3");
     std::cout << "PUT  /demo/name = etcd-cpp-apiv3" << std::endl;
 
-    // ── GET ──
     auto resp = etcd.get("/demo/hello");
     if (resp.is_ok())
     {
@@ -31,7 +29,6 @@ int main()
         std::cerr << "GET /demo/hello failed: " << resp.error_message() << std::endl;
     }
 
-    // ── LS (prefix scan) ──
     auto items = etcd.ls("/demo/").values();
     std::cout << "\nLS  /demo/ (" << items.size() << " keys):" << std::endl;
     for (auto const &v : items)
@@ -39,7 +36,6 @@ int main()
         std::cout << "  " << v.key() << " = " << v.as_string() << std::endl;
     }
 
-    // ── Lease (TTL) ──
     int64_t lease_id = etcd.leasegrant(10).value().lease();
     std::cout << "\nLease granted: ID=" << lease_id << " TTL=10s" << std::endl;
 
@@ -49,15 +45,12 @@ int main()
     auto eph = etcd.get("/demo/ephemeral");
     std::cout << "GET  /demo/ephemeral -> " << eph.value().as_string() << std::endl;
 
-    // 续约
     auto keep_alive = etcd.leasekeepalive(lease_id);
     std::cout << "Lease keepalive -> Lease=" << keep_alive->Lease() << std::endl;
 
-    // ── DELETE ──
     auto del_resp = etcd.rm("/demo/counter");
     std::cout << "\nDELETE /demo/counter (ok=" << del_resp.is_ok() << ")" << std::endl;
 
-    // ── TXN (compare-and-swap) ──
     etcd.set("/demo/balance", "100");
     std::cout << "\nPUT  /demo/balance = 100" << std::endl;
 
@@ -71,7 +64,6 @@ int main()
     auto bal = etcd.get("/demo/balance");
     std::cout << "GET  /demo/balance -> " << bal.value().as_string() << std::endl;
 
-    // ── 清理 ──
     etcd.rmdir("/demo/", true);
     std::cout << "\n清理完成: DELETE /demo/*" << std::endl;
 
