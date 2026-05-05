@@ -28,7 +28,7 @@ file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/protobuf-config)
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/protobuf-config/protobuf-config.cmake
     "set(Protobuf_FOUND TRUE)\n"
 )
-set(protobuf_DIR ${CMAKE_CURRENT_BINARY_DIR}/protobuf-config)
+set(Protobuf_DIR ${CMAKE_CURRENT_BINARY_DIR}/protobuf-config CACHE PATH "" FORCE)
 
 # -------------------------------------------------------------------
 # gRPC
