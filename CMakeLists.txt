@@ -9,6 +9,7 @@ add_subdirectory(json_demo)
 
 add_subdirectory(log_demo)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 add_subdirectory(protobuf_demo)
 
 if(LINUX)
