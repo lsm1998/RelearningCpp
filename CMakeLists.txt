@@ -13,7 +13,9 @@ add_subdirectory(protobuf_demo)
 
 if(LINUX)
     add_subdirectory(muduo_demo)
-    add_subdirectory(io_uring)
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/io_uring/CMakeLists.txt")
+        add_subdirectory(io_uring)
+    endif()
 endif()
 
 add_subdirectory(pg_demo)

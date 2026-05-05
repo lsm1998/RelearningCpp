@@ -1,3 +1,0 @@
-docker run --name etcd-workbench -p 8002:8002 -d tzfun/etcd-workbench:latest
-
-docker run -d --name kafka -p 9092:9092 apache/kafka:latest
