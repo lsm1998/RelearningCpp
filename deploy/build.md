@@ -33,7 +33,7 @@ Ubuntu/Debian：
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential cmake pkg-config git docker.io \
+sudo apt install -y build-essential cmake pkg-config git \
   libboost-all-dev libssl-dev libpq-dev liburing-dev
 ```
 
