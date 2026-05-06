@@ -105,7 +105,6 @@ endif()
 if(TARGET cpprest)
     find_package(Boost REQUIRED COMPONENTS
         random
-        system
         thread
         filesystem
         chrono
@@ -113,10 +112,10 @@ if(TARGET cpprest)
         date_time
         regex
     )
+    find_package(Boost QUIET OPTIONAL_COMPONENTS system)
     target_include_directories(cpprest PRIVATE ${Boost_INCLUDE_DIRS})
     target_link_libraries(cpprest PUBLIC
         Boost::random
-        Boost::system
         Boost::thread
         Boost::filesystem
         Boost::chrono
@@ -124,6 +123,9 @@ if(TARGET cpprest)
         Boost::date_time
         Boost::regex
     )
+    if(TARGET Boost::system)
+        target_link_libraries(cpprest PUBLIC Boost::system)
+    endif()
     target_compile_definitions(cpprest PRIVATE
         BOOST_ASIO_ENABLE_OLD_SERVICES
     )
