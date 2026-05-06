@@ -1,0 +1,26 @@
+{
+    "name": "Ubuntu 26 Root Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root",
+    "runArgs": [
+        "--network=host"
+    ],
+    "otherPortsAttributes": {
+        "onAutoForward": "notify",
+        "requireLocalPort": false
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "vadimcn.vscode-lldb"
+            ]
+        }
+    }
+}
